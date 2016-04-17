@@ -88,6 +88,7 @@ Noeud* Interpreteur::inst() {
         } catch (InterpreteurException & e) {
         cout << e.what() << endl;
         m_lecteur.avancer();
+        m_arbre=nullptr;
       }
     }
 }
