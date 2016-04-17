@@ -141,10 +141,24 @@ NoeudInstEcrire::NoeudInstEcrire(vector<Noeud*> aEcrire)
 int NoeudInstEcrire::executer() {
     for (auto exp :m_aEcrire ){
         if(typeid (*exp) == typeid (SymboleValue) && *((SymboleValue*)exp) == "<CHAINE>")
-            cout << ((SymboleValue*)exp)->getChaine();
+            cout << ((SymboleValue*)exp)->getChaine().substr(1,((SymboleValue*)exp)->getChaine().size()-2);
         else
-            exp->executer();
+            cout << exp->executer() ;
     }    
-            
+
+    
     return 0; // La valeur renvoyée ne représente rien !
+}
+
+NoeudInstLire::NoeudInstLire(vector<Symbole*> aLire)
+:m_aLire(aLire){
+}
+
+int NoeudInstLire::executer() {
+
+   for (unsigned int i = 0; i < m_aLire.size(); i++) {
+        cout << " " << ((SymboleValue*) m_aLire[i])->getChaine();
+   }
+
+   return 0; // La valeur renvoyée ne représente rien !
 }

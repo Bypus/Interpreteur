@@ -143,4 +143,20 @@ class NoeudInstEcrire : public Noeud {
 
 };
 
+////////////////////////////////////////////////////////////////////////////////
+class NoeudInstLire : public Noeud {
+// Classe pour représenter un noeud "instruction pour"
+//  et ses 4 fils : la séquence d'instruction du pour, l'initialisation, la condition et l'affectation associées
+  public:
+    NoeudInstLire(vector <Symbole*> aLire);
+     // Construit une "instruction pour" avec sa séquence d'instruction du pour, son initialisation, sa condition et son affectation associées
+   ~NoeudInstLire() {} // A cause du destructeur virtuel de la classe Noeud
+    int executer();  // Exécute l'instruction pour : initialisation puis affectation et execution de la sequence tant que la condition est vraie
+
+  private:
+      vector <Symbole*> m_aLire;
+
+};
+
+
 #endif /* ARBREABSTRAIT_H */

@@ -22,5 +22,10 @@ procedure principale()
 
     ecrire("La valeur de j = ", j ," ! ")
 
+    lire(l)
+
+    ecrire("La valeur de l = ", l ," ! ")
+
+
 finproc
 # Commentaire Final
