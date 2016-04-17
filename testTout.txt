@@ -1,0 +1,40 @@
+# Fichier de test
+# Les lignes de commentaires commencent par #
+procedure principale()
+
+    nbEleve = 0;
+    nbChaise = 0;
+    noteGlob = 0;
+
+    ecrire("La classe contient ", nbEleve, " eleve. ")
+    
+    repeter
+        ecrire("Voulez vous ajouter un eleve ? (1/0)")
+        lire(reponse)
+        si (reponse == 1)    
+            nbeleve = nbeleve+1;
+        finsi    
+    jusqua (reponse == 0)
+
+    ecrire("La classe contient maintenant ", nbEleve, " eleves. ")
+    ecrire("Il y a ", nbChaise, "chaise(s). ")
+    
+    ecrire("Il faut amener autant de chaises que d'eleves. ")
+
+    tantque (nbChaise < nbEleve)
+        nbChaise = nbChaise+1;
+    fintantque
+    
+    ecrire("Il y a maintenant ", nbChaise, " chaises. ")
+
+    pour (i=0 ; i < nbEleve ; i=i+1)
+        ecrire("Entrez la note de l'eleve ", i, " : ")
+        lire(note)
+        noteGlob = noteGlob + note;
+    finpour
+
+    ecrire("La moyenne de la classe est de : ", noteGlob/nbEleve, " .")
+
+
+finproc
+# Commentaire Final

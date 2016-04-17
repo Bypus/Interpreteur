@@ -1,30 +1,47 @@
 # Fichier de test
 # Les lignes de commentaires commencent par #
 procedure principale()
+    
+    # affectations
     i = 12+3;
     k = 2;
+    j = 0;
 
-    si (i>14)
+    ecrire ("i = ",i);
+    ecrire ("k = ",k);
+    ecrire ("j = ",j);
+
+    # instruction si
+    # final : j = 0
+    si (i<14)
         j=1;
     finsi
 
+    # instruction tantque
+    # final : i = 20
     tantque (i < 20)
         i=i+1;
     fintantque
 
+    # instruction repeter
+    # final : k = 10
     repeter
-        k=k+1;    
+        k=k+1;   
+        ecrire("k = ", k); 
     jusqua (k==10)
     
+    # instruction pour
+    # final : j = 20
     pour (l=0;l<10;l=l+1)
         j=j+2;
     finpour
 
-    ecrire("La valeur de j = ", j ," ! ")
+    ecrire("La valeur de j = ", j ," ! ");
 
-    lire(l)
-
-    ecrire("La valeur de l = ", l ," ! ")
+    # Test du lire
+    ecrire ("Donner une valeur pour m : ");
+    lire(m);
+    ecrire ("m = ",m);
 
 
 finproc
