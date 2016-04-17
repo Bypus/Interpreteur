@@ -17,6 +17,8 @@ public:
     //   la table des symboles (ts) et l'arbre abstrait (arbre) auront été construits
     // Sinon, une exception sera levée
 
+    void traduitEnCPP(ostream & cout,unsigned int indentation)const;
+
     inline const TableSymboles & getTable() const {
         return m_table;
     } // accesseur	
