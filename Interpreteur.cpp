@@ -65,24 +65,31 @@ Noeud* Interpreteur::seqInst() {
 
 Noeud* Interpreteur::inst() {
     // <inst> ::= <affectation>  ; | <instSi> | <instTantque> | <instRepeter> | <instEcrire>
-    if (m_lecteur.getSymbole() == "<VARIABLE>") {
-        Noeud *affect = affectation();
-        testerEtAvancer(";");
-        return affect;
-    } else if (m_lecteur.getSymbole() == "si")
-        return instSi();
-    else if (m_lecteur.getSymbole() == "tantque")
-        return instTantque();
-    else if (m_lecteur.getSymbole() == "repeter")
-        return instRepeter();
-    else if (m_lecteur.getSymbole() == "pour")
-        return instPour();
-    else if (m_lecteur.getSymbole() == "ecrire")
-        return instEcrire();
-    else if (m_lecteur.getSymbole() == "lire")
-        return instLire();
-    // Compléter les alternatives chaque fois qu'on rajoute une nouvelle instruction
-    else erreur("Instruction incorrecte");
+    while(m_lecteur.getSymbole()!= "<FINDEFICHIER>"){
+        try{
+            if (m_lecteur.getSymbole() == "<VARIABLE>") {
+                Noeud *affect = affectation();
+                testerEtAvancer(";");
+                return affect;
+            } else if (m_lecteur.getSymbole() == "si")
+                return instSi();
+            else if (m_lecteur.getSymbole() == "tantque")
+                return instTantque();
+            else if (m_lecteur.getSymbole() == "repeter")
+                return instRepeter();
+            else if (m_lecteur.getSymbole() == "pour")
+                return instPour();
+            else if (m_lecteur.getSymbole() == "ecrire")
+                return instEcrire();
+            else if (m_lecteur.getSymbole() == "lire")
+                return instLire();
+            // Compléter les alternatives chaque fois qu'on rajoute une nouvelle instruction
+            else erreur("Instruction incorrecte");
+        } catch (InterpreteurException & e) {
+        cout << e.what() << endl;
+        m_lecteur.avancer();
+      }
+    }
 }
 
 Noeud* Interpreteur::affectation() {
