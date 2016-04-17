@@ -1,0 +1,26 @@
+# Fichier de test
+# Les lignes de commentaires commencent par #
+procedure principale()
+    i = 12+3;
+    k = 2;
+
+    si (i>14)
+        j=1;
+    finsi
+
+    tantque (i < 20)
+        i=i+1;
+    fintantque
+
+    repeter
+        k=k+1;    
+    jusqua (k==10)
+    
+    pour (l=0;l<10;l=l+1)
+        j=j+2;
+    finpour
+
+    ecrire("La valeur de j = ", j ," ! ")
+
+finproc
+# Commentaire Final
