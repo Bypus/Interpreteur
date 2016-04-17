@@ -199,7 +199,7 @@ Noeud* Interpreteur::instPour() {
 }
 
 Noeud* Interpreteur::instEcrire(){
-    //      <instEcrire> ::= ecrire (<expression> | <chaine> {,<expression> | <chaine> } )
+    //      <instEcrire> ::= ecrire (<expression> | <chaine> {,<expression> | <chaine> } );
     testerEtAvancer("ecrire");
     testerEtAvancer("(");
     vector<Noeud*> aEcrire;
@@ -223,6 +223,7 @@ Noeud* Interpreteur::instEcrire(){
     
     }
     testerEtAvancer(")");
+    testerEtAvancer(";");
 
 
     return new NoeudInstEcrire(aEcrire);
@@ -230,7 +231,7 @@ Noeud* Interpreteur::instEcrire(){
 }   
 
 Noeud* Interpreteur::instLire(){
-    //      <instLire> ::= lire (<variable> {, <variable> } )
+    //      <instLire> ::= lire (<variable> {, <variable> } );
     testerEtAvancer("lire");
     testerEtAvancer("(");
     vector<Noeud*> aLire;
@@ -248,6 +249,8 @@ Noeud* Interpreteur::instLire(){
     
     }
     testerEtAvancer(")");
+    testerEtAvancer(";");
+
 
 
     return new NoeudInstLire(aLire);
