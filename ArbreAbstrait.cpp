@@ -150,15 +150,22 @@ int NoeudInstEcrire::executer() {
     return 0; // La valeur renvoyée ne représente rien !
 }
 
-NoeudInstLire::NoeudInstLire(vector<Symbole*> aLire)
+////////////////////////////////////////////////////////////////////////////////
+// NoeudInstEcrire
+////////////////////////////////////////////////////////////////////////////////
+
+NoeudInstLire::NoeudInstLire(vector<Noeud*> aLire)
 :m_aLire(aLire){
 }
 
-int NoeudInstLire::executer() {
-
-   for (unsigned int i = 0; i < m_aLire.size(); i++) {
-        cout << " " << ((SymboleValue*) m_aLire[i])->getChaine();
-   }
-
-   return 0; // La valeur renvoyée ne représente rien !
+int NoeudInstLire::executer(){
+    for ( auto *exp : m_aLire )
+    {   
+        cout << "Saisissez une valeur : ";
+        int var;
+        cin >> var;
+        ((SymboleValue*)exp)->setValeur(var);
+    }
+    return 0; // La valeur renvoyée ne représente rien !
 }
+

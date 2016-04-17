@@ -233,7 +233,7 @@ Noeud* Interpreteur::instLire(){
     //      <instLire> ::= lire (<variable> {, <variable> } )
     testerEtAvancer("lire");
     testerEtAvancer("(");
-    vector<Symbole*> aLire;
+    vector<Noeud*> aLire;
     if(m_lecteur.getSymbole() == "<VARIABLE>"){
         aLire.push_back(m_table.chercheAjoute(m_lecteur.getSymbole()));       
         m_lecteur.avancer();
